@@ -1,5 +1,6 @@
 mainURLforSongs = "";
 var isSongPlaying = false;
+times = 0;
 function playorpause()
 {
     if (isSongPlaying == false)
@@ -33,6 +34,12 @@ function playorpause()
 }
 function playSong(songname, img, authorin, orignalname)
 {
+    if (times != 0){
+        playorpause();
+    }
+    times +=1;
+    song_cur = "";
+    times+=1;
     song_cur = new Audio("https://sherry65-code.github.io/muzix_lib/"+songname);
     song_cur.play();
     document.getElementById('icon').href = "https://sherry65-code.github.io/muzik_img/"+img;
@@ -46,7 +53,7 @@ function playSong(songname, img, authorin, orignalname)
     height: 60px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background-image: url('https://sherry65-code.github.io/muzik_img/master of puppets.jpg');
+    background-image: url('https://sherry65-code.github.io/muzik_img/`+img+`');
     background-size:contain;
     background-repeat: no-repeat;
     padding-inline-start: 130px;
@@ -57,7 +64,7 @@ function playSong(songname, img, authorin, orignalname)
     transition: all ease-in-out 0.4s;
     transform: scale(1);`;
     playorpause();
-    document.getElementById('titleforweb').innerHTML = orignalname;
+    document.getElementById('titleforweb').innerHTML = orignalname + " - "+authorin;
 }   
 function GenerateSongs(){
     x = 0;
@@ -66,6 +73,7 @@ function GenerateSongs(){
         x+=1;
 
     }
+    document.getElementById('main').innerHTML +="<br><br><br><br><br><br>";
 }
 window.addEventListener('load',()=>{
     GenerateSongs();
