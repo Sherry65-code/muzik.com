@@ -1,11 +1,15 @@
 body{
-    background-color: rgb(3, 6, 12);
-    background-image: url('wal.webp');
+    background-color: rgb(15, 16, 19);
+    /* background-image: url('wal.webp'); */
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
     overflow: hidden;
+}
+.songname2{
+    font-variant: small-caps;
+
 }
 .header{
     background-color: rgba(0, 0, 0, 0);
@@ -40,16 +44,15 @@ body{
     scroll-behavior: smooth;
 }
 .songbutton{
-    background-color: rgba(255, 0, 0, 0);
     padding: 10px 20px;
     font-size: 15px;
     border-radius: 8px;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(7px);
     transition: all ease-in-out 0.3s;
     border: none;
     color: aliceblue;
     cursor: pointer;
+    background-color: rgba(240, 248, 255, 0.034);
+
 }
 ::selection{
     user-select: none;
@@ -59,6 +62,8 @@ body{
 }
 .songname{
     font-variant: small-caps;
+    position: absolute;
+    left: 124px;
 }
 .author{
     font-size: 10px;
@@ -68,7 +73,7 @@ body{
     background-color: rgba(240, 248, 255, 0);
 }
 ::-webkit-scrollbar-thumb{
-    background-color: rgb(155, 79, 255);
+    background-color: rgb(44, 44, 44);
     border-radius: 4px;
 }
 #player{
@@ -76,19 +81,20 @@ body{
     bottom: 0;
     right: 0;
     left: 0;
-    height: 60px;
+    height: 80px;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    background-image: url('https://sherry65-code.github.io/muzik_img/master of puppets.jpg');
+    /* background-image: url('https://sherry65-code.github.io/muzik_img/master of puppets.jpg'); */
     background-size:contain;
     background-repeat: no-repeat;
     padding-inline-start: 130px;
-    padding-block-start: 40px;
+    padding-block-start: 20px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 200;
     color: aliceblue;
     transition: all ease-in-out 0.4s;
     transform: scale(0);
+    /* text-align: center; */
 
 }
 #play{
@@ -101,4 +107,56 @@ body{
     background-image: url('play.png');
     background-size: cover;
     transition: all ease-in-out 0.4s;
+    filter: invert(100%);
+}
+.timehandler{
+    position: absolute;
+    bottom: 45px;
+    left: 150px;
+    height: 5px;
+    top: 60px;
+    background-color: rgb(80, 80, 80);
+    z-index: 200;
+    border-radius: 18px;
+    width: 150px;
+    background-color: rgba(240, 248, 255, 0);
+
+}
+#slider{
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+position: absolute;
+left: 0;
+top: -50%;
+background-color: rgba(240, 248, 255, 0);
+}
+#slider:hover{
+    transform: scale(1.1);
+}
+#lefttime{
+    font-size: 10px;
+    position: absolute;
+    left: -18%;
+    top: -4px;
+}
+#righttime{
+    font-size: 10px;
+    position: absolute;
+    right: -20%;
+    top: -4px;
+}
+.slider{
+    -webkit-appearance: none;
+    width: 100%;
+    /* height: 25px; */
+    background: #383838;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 18px;
+    left: 150px;
+    top: 60px;
+    transform: translate(0px, -5px);
 }
