@@ -145,6 +145,9 @@ function SongHandler() {
   document.getElementById('songNow').addEventListener('click',()=>{
     song_cur.currentTime = (parseInt(document.getElementById('songNow').value)/100)*parseInt(song_cur.duration);
   });
+  document.getElementById('songNow').addEventListener('touchend',()=>{
+    song_cur.currentTime = (parseInt(document.getElementById('songNow').value)/100)*parseInt(song_cur.duration);
+  });
 }
 window.addEventListener("load", () => {
   GenerateSongs();
