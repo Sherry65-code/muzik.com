@@ -65,7 +65,7 @@ function GenerateSongs() {
   x = 0;
   while (x < totalLength) {
     document.getElementById("main").innerHTML +=
-      `<div onclick="playSong('` +
+      `<div style="background-image: url('https://sherry65-code.github.io/muzik_img/`+songImg[x]+`')" onclick="playSong('` +
       songUrl[x] +
       `','` +
       songImg[x] +
@@ -85,7 +85,33 @@ function GenerateSongs() {
   document.getElementById("main").innerHTML += "<br><br><br><br><br><br>";
 }
 function SongHandler() {
-  if (song_cur.paused == true && isSongPlaying == true) {
+  if (song_cur.paused == true && isSongPlaying == true && song_cur.currentTime != song_cur.duration)
+  {
+    isSongPlaying = false;
+    document.getElementById("play").style = `    position: absolute;
+    right: 20px;
+    border: none;
+    padding: 10px ;
+    bottom: 40px;
+    background-color: rgba(240, 248, 255, 0);
+    background-image: url('play.png');
+    background-size: cover;
+    transition: all ease-in-out 0.4s;`;
+  }
+  else if (song_cur.paused == false && isSongPlaying == false && song_cur.currentTime != song_cur.duration)
+  {
+    isSongPlaying = true;
+    document.getElementById("play").style = `    position: absolute;
+    right: 20px;
+    border: none;
+    padding: 10px ;
+    bottom: 40px;
+    background-color: rgba(240, 248, 255, 0);
+    background-image: url('pause.png');
+    background-size: cover;
+    transition: all ease-in-out 0.4s;`;
+  }
+  if (song_cur.paused == true && isSongPlaying == true && song_cur.currentTime == song_cur.duration) {
     if (indexout == totalLength) {
       indexout = 0;
       playSong(
@@ -114,7 +140,11 @@ function SongHandler() {
     document.getElementById("righttime").innerHTML =
       parseInt(song_cur.duration / 60) + ":" + parseInt(song_cur.duration % 60);
   }
-  document.getElementById('songNow').value = song_cur.currentTime / 60 * 10;
+  document.getElementById('songNow').value = (song_cur.currentTime/song_cur.duration) * 100;
+
+  document.getElementById('songNow').addEventListener('click',()=>{
+    song_cur.currentTime = (parseInt(document.getElementById('songNow').value)/100)*parseInt(song_cur.duration);
+  });
 }
 window.addEventListener("load", () => {
   GenerateSongs();
