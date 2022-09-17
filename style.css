@@ -258,3 +258,41 @@ background-color: rgba(240, 248, 255, 0);
     bottom: 0;
     visibility: hidden;
 }
+#splash{
+    background-color: black;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    transition: all ease-in-out 0.4s;
+    background-image: url('./favicon.png');
+    background-size: 50px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: scale(0);
+}
+@keyframes loadstart {
+    0%{
+        transform: scale(1);
+    }
+    20%{
+        border-radius: 50%;
+    }
+    50%{
+        left: 30%;
+        right: 30%;
+        top: 30%;
+        bottom: 30%;
+    }
+    80%{
+        transform: rotateZ(360deg);
+    }
+    100%{
+        left: 50%;
+        right: 50%;
+        top: 50%;
+        bottom: 50%;
+    }
+}

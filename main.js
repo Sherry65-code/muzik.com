@@ -3,6 +3,11 @@ var isSongPlaying = false;
 times = 0;
 var indexout = 0;
 var song_cur = new Audio();
+document.getElementById('splash').style.transform = "scale(1)";
+window.addEventListener('load',()=>{
+  document.getElementById('splash').style.animation = "loadstart 2s 1 ";
+  document.getElementById('splash').style.transform = "scale(0)";
+})
 function playorpause() {
   if (isSongPlaying == false) {
     isSongPlaying = true;
