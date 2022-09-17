@@ -152,4 +152,33 @@ function SongHandler() {
 window.addEventListener("load", () => {
   GenerateSongs();
 });
+
 setInterval(SongHandler, 1000);
+document.getElementById('searchbar').addEventListener('keyup',()=>{
+  sc = 0;
+  document.getElementById('results').innerHTML = "";
+  document.getElementById('searchpot').style.visibility = "visible";
+  while (sc < totalLength)
+  {
+    if ((songName[sc].toLowerCase()).includes((document.getElementById('searchbar')).value))
+    {
+      document.getElementById('results').innerHTML += `<button onclick="playSong('` +
+      songUrl[sc] +
+      `','` +
+      songImg[sc] +
+      `','` +
+      author[sc] +
+      `','` +
+      songName[sc] +
+      `',` +
+      sc +
+      `)" class="resultbutton">`+songName[sc]+`</button><br>`;
+      
+    }
+    sc+=1;
+  }
+});
+function hidesearchpot()
+{
+  document.getElementById('searchpot').style.visibility = "hidden";
+}
