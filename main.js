@@ -160,7 +160,7 @@ document.getElementById('searchbar').addEventListener('keyup',()=>{
   document.getElementById('searchpot').style.visibility = "visible";
   while (sc < totalLength)
   {
-    if ((songName[sc].toLowerCase()).includes((document.getElementById('searchbar')).value))
+    if ((songName[sc].toLowerCase()).includes((document.getElementById('searchbar').value).toLowerCase()))
     {
       document.getElementById('results').innerHTML += `<button onclick="playSong('` +
       songUrl[sc] +
