@@ -12,7 +12,8 @@ window.addEventListener('load',()=>{
 })
 function updateMonitor(songnameisp){
   document.getElementById('resumeplate').innerHTML = "Playing "+songnameisp;
-  document.getElementById('resumeplate').style.right = "20px";
+  document.getElementById('resumeplate').style.transform = "scale(1)";
+
 }
 function playorpause() {
   if (isSongPlaying == false) {

@@ -279,7 +279,7 @@ background-color: rgba(240, 248, 255, 0);
 }
 #resumeplate{
     position: absolute;
-    right: -100%;
+    right: 20px;
     bottom: 20px;
     padding: 20px;
     border-radius: 8px;
@@ -290,4 +290,6 @@ background-color: rgba(240, 248, 255, 0);
     color: white;
     z-index: 5;
     cursor: pointer;
+    transform: scale(0);
+    transition: all ease-in-out 0.4s;
 }
