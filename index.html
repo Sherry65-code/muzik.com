@@ -14,17 +14,20 @@
         Muzik <input type="text" id="searchbar" placeholder="Search here" spellcheck="false">
     </div>
     <div id="main">
-        <br><br><br><br><br>
+        <br><br><br><br><br id="hdr">
         Songs To Listen
         <br><br><br>
-    <div id="searchpot" onclick="hidesearchpot()">
-        <div id="results"></div>
-    </div>
+
     </div>
     <div id="player">
        <span class="songname"> Master of Puppets</span> <br><span class="author">Metallica</span>
-       <div class="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span></div>
-        <button id="play" onclick="playorpause()"></button>
+       <div class="timehandler" id="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span>    
+            <br><button id="play" onclick="playorpause()"></button>
+       </div>
+    </div>
+    <div id="resumeplate" onclick="changePlayerLook()">Playing Nothing</div>
+    <div id="searchpot" onclick="hidesearchpot()">
+        <div id="results"></div>
     </div>
     <script src="./main.js"></script>
     <script src="./data.js"></script>
