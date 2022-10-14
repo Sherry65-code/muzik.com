@@ -41,6 +41,8 @@ function playSong(songname, img, authorin, orignalname, index) {
   if (times != 0) {
     playorpause();
   }
+  document.body.style.background = "radial-gradient("+songAccent[index]+",rgb(28, 27, 41))";
+  document.body.style.backgroundAttachment = "fixed";
   times += 1;
   song_cur = "";
   times += 1;
@@ -50,6 +52,7 @@ function playSong(songname, img, authorin, orignalname, index) {
     "https://sherry65-code.github.io/muzik_img/" + img;
   document.getElementById("player").innerHTML =
     `      
+    <div id="cen"><img src="" id="songimg"></div>
     <span class="songname" id="sn">` +
     orignalname +
     ` <span class="author">` +
@@ -58,11 +61,10 @@ function playSong(songname, img, authorin, orignalname, index) {
     <div class="timehandler" id="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span><input type="range" min="1" max="100" value="0" class="slider" id="songNow"><br><button id="play" onclick="playorpause()"></button></div>
     `;
     updateMonitor(orignalname);
-  document.getElementById("player").style.background =
-    "url('https://sherry65-code.github.io/muzik_img/" + img + "')";
-    document.getElementById("player").style.backgroundSize = "auto 70%";
-    document.getElementById("player").style.backgroundPosition = "50% 10%";
-    document.getElementById("player").style.backgroundRepeat = "no-repeat";
+    document.getElementById("songimg").src = "https://sherry65-code.github.io/muzik_img/" + img;
+    // document.getElementById("player").style.backgroundSize = "auto 70%";
+    // document.getElementById("player").style.backgroundPosition = "50% 10%";
+    // document.getElementById("player").style.backgroundRepeat = "no-repeat";
   document.getElementById("player").style.transform = "scale(1)";
   playorpause();
   document.getElementById("titleforweb").innerHTML =
@@ -91,7 +93,7 @@ function GenerateSongs() {
       `</span></div><br>`;
     x += 1;
   }
-  document.getElementById("main").innerHTML += "<br><br><br><br><br><br>";
+  document.getElementById("main").innerHTML += "<br><br><br><br><br><br><span class='end'>That's all we have for now</span>";
 }
 function SongHandler() {
   if (song_cur.paused == true && isSongPlaying == true && song_cur.currentTime != song_cur.duration)
@@ -190,10 +192,10 @@ function hidesearchpot()
 function changePlayerLook(){
     document.getElementById('player').style = `
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    top: 80px;
-    left: 20px;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    left: 0px;
     height: auto;
     width: auto;
     backdrop-filter: blur(10px);
@@ -201,24 +203,22 @@ function changePlayerLook(){
     font-weight: 600;
     color: aliceblue;
     transition: all ease-in-out 0.4s;
-    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0px 0px 20px 0px black;
     transform: scale(1);
-    background: url('`+backimglink+`');
     background-size: auto 70%;
     background-position: 50% 10%;
     background-repeat: no-repeat;
   
+    z-index:2000;
    ` ;
   }
   function changePlayerLook2(){
     document.getElementById('player').style = `
     position: absolute;
-    bottom: 20px;
-    right: 20px;
-    top: 80px;
-    left: 20px;
+    bottom: 0px;
+    right: 0px;
+    top: 0px;
+    left: 0px;
     height: auto;
     width: auto;
     backdrop-filter: blur(10px);
@@ -226,16 +226,16 @@ function changePlayerLook(){
     font-weight: 600;
     color: aliceblue;
     transition: all ease-in-out 0.4s;
-    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0px 0px 20px 0px black;
-    transform:scale(0);
-    background: url('`+backimglink+`');
+    transform: scale(0);
     background-size: auto 70%;
     background-position: 50% 10%;
     background-repeat: no-repeat;
 
+    z-index:2000;
+
     `;
+
   }
 
 document.getElementById('player').addEventListener('dblclick',changePlayerLook2);
