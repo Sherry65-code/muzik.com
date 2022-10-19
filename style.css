@@ -8,7 +8,7 @@ body{
     overflow: hidden;
     /* background: linear-gradient(to right , rgb(58, 77, 255) ,rgb(255, 49, 111)); */
     /* background-color: rgb(26, 26, 26); */
-    background: radial-gradient(rgb(193, 240, 220), rgb(28, 27, 41));
+    background: linear-gradient(rgb(73, 100, 84), rgb(28, 27, 41));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -22,8 +22,8 @@ body{
     background-color: rgba(0, 0, 0, 0.623);
     position: absolute;
     right: 25px;
-    top: 10px;
-    bottom: 10px;
+    top: 18px;
+    bottom: 18px;
     width: 30%;
     min-width: 150px;
     border: 2px solid rgba(0, 0, 0, 0);
@@ -48,6 +48,8 @@ body{
 
 .songname2{
     font-variant: small-caps;
+    text-overflow: ellipsis;
+    word-break: break-all;
 
 }
 .grd{
@@ -68,7 +70,7 @@ body{
     left: 0;
     right: 0;
     top: 0;
-    padding: 5px 20px;
+    padding: 15px 20px;
     
 }
 *{

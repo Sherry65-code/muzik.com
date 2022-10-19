@@ -15,6 +15,20 @@ function updateMonitor(songnameisp){
   document.getElementById('resumeplate').style.transform = "scale(1)";
 
 }
+function setAccent(imglink){
+  let myImg = new Image();
+  myImg.crossOrigin = "Anonymous";
+  myImg.onload = () => {
+    let context = document.createElement('canvas').getContext('2d');
+    context.drawImage(myImg, 0, 0);
+    let {
+      data
+    } = context.getImageData(10, 10, 1, 1);
+    document.body.style.background = "rgb("+data[0]+","+data[1]+","+data[2]+")";
+    document.body.style.backgroundAttachment = "fixed";
+  }
+  myImg.src = imglink;
+}
 function playorpause() {
   if (isSongPlaying == false) {
     isSongPlaying = true;
@@ -41,7 +55,6 @@ function playSong(songname, img, authorin, orignalname, index) {
   if (times != 0) {
     playorpause();
   }
-  document.body.style.background = "radial-gradient("+songAccent[index]+",rgb(28, 27, 41))";
   document.body.style.backgroundAttachment = "fixed";
   times += 1;
   song_cur = "";
@@ -71,6 +84,7 @@ function playSong(songname, img, authorin, orignalname, index) {
     orignalname + " - " + authorin;
   document.getElementById("titleforweb").innerHTML = orignalname;
   backimglink = "https://sherry65-code.github.io/muzik_img/" + img;
+  setAccent(backimglink);
 }
 function GenerateSongs() {
   x = 0;
@@ -88,7 +102,7 @@ function GenerateSongs() {
       x +
       `)" class="songbutton"><span class="songname2">` +
       songName[x] +
-      ` </span><span class="author">` +
+      ` </span><br><span class="author">` +
       author[x] +
       `</span></div><br>`;
     x += 1;
