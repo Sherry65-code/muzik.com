@@ -11,7 +11,7 @@ window.addEventListener('load',()=>{
   document.getElementById('splash').style.transform = "scale(0)";
 })
 function updateMonitor(songnameisp){
-  document.getElementById('resumeplate').innerHTML = "Playing "+songnameisp;
+  document.getElementById('resumeplate').innerHTML = "Playing "+songnameisp+` <div id="playtime"></div>`;
   document.getElementById('resumeplate').style.transform = "scale(1)";
 
 }
@@ -24,7 +24,7 @@ function setAccent(imglink){
     let {
       data
     } = context.getImageData(10, 10, 1, 1);
-    document.body.style.background = "rgb("+data[0]+","+data[1]+","+data[2]+")";
+    document.body.style.background = "linear-gradient(rgb("+data[0]+","+data[1]+","+data[2]+"), #1c1b29)";
     document.body.style.backgroundAttachment = "fixed";
   }
   myImg.src = imglink;
@@ -50,7 +50,7 @@ function playorpause() {
         transition: all ease-in-out 0.4s;`;
   }
 }
-function playSong(songname, img, authorin, orignalname, index) {
+function playSong(songname, img, authorin, orignalname, index, isClickedByUser=false) {
   indexout = index;
   if (times != 0) {
     playorpause();
@@ -63,7 +63,7 @@ function playSong(songname, img, authorin, orignalname, index) {
   song_cur.play();
   document.getElementById("icon").href =
     "https://sherry65-code.github.io/muzik_img/" + img;
-  document.getElementById("player").innerHTML =
+    document.getElementById("player").innerHTML =
     `      
     <div id="cen"><img src="" id="songimg"></div>
     <span class="songname" id="sn">` +
@@ -78,18 +78,19 @@ function playSong(songname, img, authorin, orignalname, index) {
     // document.getElementById("player").style.backgroundSize = "auto 70%";
     // document.getElementById("player").style.backgroundPosition = "50% 10%";
     // document.getElementById("player").style.backgroundRepeat = "no-repeat";
-  document.getElementById("player").style.transform = "scale(1)";
-  playorpause();
+if (isClickedByUser){
+    document.getElementById("player").style.transform = "scale(1)";
+}playorpause();
   document.getElementById("titleforweb").innerHTML =
     orignalname + " - " + authorin;
   document.getElementById("titleforweb").innerHTML = orignalname;
   backimglink = "https://sherry65-code.github.io/muzik_img/" + img;
   setAccent(backimglink);
 }
-function GenerateSongs() {
-  x = 0;
-  while (x < totalLength) {
-    document.getElementById("main").innerHTML +=
+function GenerateSongsInLimit(startI, endI) {
+  x = startI;
+  while (x < endI) {
+    document.getElementById("mxa").innerHTML +=
       `<div style="background-image: url('https://sherry65-code.github.io/muzik_img/`+songImg[x]+`')" onclick="playSong('` +
       songUrl[x] +
       `','` +
@@ -100,14 +101,26 @@ function GenerateSongs() {
       songName[x] +
       `',` +
       x +
-      `)" class="songbutton"><span class="songname2">` +
+      `,true)" class="songbutton"><span class="songname2">` +
       songName[x] +
       ` </span><br><span class="author">` +
       author[x] +
       `</span></div><br>`;
     x += 1;
   }
-  document.getElementById("main").innerHTML += "<br><br><br><br><br><br><span class='end'>That's all we have for now</span>";
+  if (x>=totalLength){
+document.getElementById('hbr2').innerHTML = "";
+  } 
+
+  else{
+    if (totalLength-x <= 10){
+    document.getElementById('hbr2').innerHTML = "<button id ='xtra' onclick='GenerateSongsInLimit("+x+","+totalLength+")'>Show More</button>"
+    }
+    else{
+      document.getElementById('hbr2').innerHTML = "<button id ='xtra' onclick='GenerateSongsInLimit("+x+","+(x+10)+")'>Show More</button>"
+
+    }
+  } 
 }
 function SongHandler() {
   if (song_cur.paused == true && isSongPlaying == true && song_cur.currentTime != song_cur.duration)
@@ -158,7 +171,8 @@ function SongHandler() {
       parseInt(song_cur.currentTime % 60);
     document.getElementById("righttime").innerHTML =
       parseInt(song_cur.duration / 60) + ":" + parseInt(song_cur.duration % 60);
-  }
+     document.getElementById('playtime').style.width =  parseInt((song_cur.currentTime/song_cur.duration)*200)+"px";
+    }
   document.getElementById('songNow').value = (song_cur.currentTime/song_cur.duration) * 100;
 
   document.getElementById('songNow').addEventListener('click',()=>{
@@ -169,7 +183,7 @@ function SongHandler() {
   });
 }
 window.addEventListener("load", () => {
-  GenerateSongs();
+  GenerateSongsInLimit(0, 10);
 });
 
 setInterval(SongHandler, 1000);
@@ -252,4 +266,4 @@ function changePlayerLook(){
 
   }
 
-document.getElementById('player').addEventListener('dblclick',changePlayerLook2);
+  document.getElementById('player').addEventListener('dblclick',changePlayerLook2);

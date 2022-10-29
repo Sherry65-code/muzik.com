@@ -2,13 +2,16 @@
     font-family: 'hecker';
     src: url('./fonts/Rubik-VariableFont_wght.ttf');
 }
+#h{
+    text-shadow: 2px 2px 2px black;
+}
 body{
     /* background-color: rgb(15, 16, 19); */
     /* background-image: url('wal.webp'); */
     overflow: hidden;
     /* background: linear-gradient(to right , rgb(58, 77, 255) ,rgb(255, 49, 111)); */
     /* background-color: rgb(26, 26, 26); */
-    background: linear-gradient(rgb(73, 100, 84), rgb(28, 27, 41));
+    background: linear-gradient(rgb(0, 0, 0), rgb(28, 27, 41));
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -17,6 +20,20 @@ body{
 *{
     outline: none;
     font-family: 'hecker';
+}#hbr2{
+    text-align: center;
+}
+#xtra{
+    border: none;
+    padding: 10px 20px;
+    width: 50%;
+    border-radius: 18px;
+    background-color: #0000006b;
+    color: white;
+    transition: all ease-in-out 0.4s;
+}
+#xtra:hover{
+    background-color: black;
 }
 #searchbar{
     background-color: rgba(0, 0, 0, 0.623);
@@ -24,21 +41,22 @@ body{
     right: 25px;
     top: 18px;
     bottom: 18px;
-    width: 30%;
-    min-width: 150px;
+    width: 20%;
     border: 2px solid rgba(0, 0, 0, 0);
     border-radius: 28px;
     color: white;
     font-variant: normal;
-    padding-inline-start: 20px;
+    padding-inline-start:30px;
     font-weight: 600;
-    transition: background-color ease-in-out 0.4s;
+    transition: all ease-in-out 0.4s;
+    background-image: url('./images/search.png');
+    background-size: auto 70%;
+    background-repeat: no-repeat;
+    background-position: 5px 50%;
 }
 #searchbar:hover{
-    background-color: rgb(0, 0, 0);
-    border-image:fill url('./images/grad.jpeg') ;
+    width: 25%;
 }
-
 #searchbar::selection{
     background-color: white;
     color: black;
@@ -53,7 +71,7 @@ body{
 
 }
 .grd{
-    background: linear-gradient(to right,  rgb(136, 93, 255), rgb(135, 255, 239));
+    background: linear-gradient(to right,  rgb(93, 255, 247), rgb(70, 116, 216));
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
@@ -134,7 +152,7 @@ body{
 ::-webkit-scrollbar-thumb{
     /* background-color: rgb(44, 44, 44); */
     border-radius: 8px;
-    background: linear-gradient(rgba(95, 159, 255, 0.411), rgba(255, 124, 174, 0.568));
+    background: linear-gradient(rgba(90, 206, 235, 0.411), rgba(172, 172, 172, 0.568));
 }
 .logo{
     height: 22px;
@@ -306,8 +324,10 @@ background-color: rgba(240, 248, 255, 0);
     position: absolute;
     right: 20px;
     bottom: 20px;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 20px 0px;
+    width: 200px;
+    text-align: center;
+    border-radius: 12px;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
     font-family: 'hecker';
@@ -317,6 +337,8 @@ background-color: rgba(240, 248, 255, 0);
     cursor: pointer;
     transform: scale(0);
     transition: all ease-in-out 0.4s;
+    background-color: rgba(0, 0, 0, 0.397);
+    overflow: hidden;
 }
 #songimg{
     border-radius: 28px;
@@ -331,4 +353,12 @@ background-color: rgba(240, 248, 255, 0);
     bottom: 160px;
     display: grid;
     place-items: center;
+}
+#playtime{
+    background-color: white;
+    width: 1px;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
 }
