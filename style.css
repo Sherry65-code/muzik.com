@@ -76,11 +76,11 @@ body{
     -webkit-background-clip: text;
 }
 .header{
+    -webkit-backdrop-filter: blur(4px);
     background-color: rgba(0, 0, 0, 0);
     color: aliceblue;
     font-size: 30px;
     font-weight: 600;
-    -webkit-backdrop-filter:blur(8px);
     background-repeat: no-repeat;
     z-index: 100;
     backdrop-filter: blur(8px);
@@ -109,6 +109,8 @@ body{
     font-weight: 200;
     overflow-y: scroll;
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 .songbutton{
     padding: 35px 20px;
@@ -308,7 +310,7 @@ background-color: rgba(240, 248, 255, 0);
     top: 0;
     bottom: 0;
     z-index: 10;
-    transition: all ease-in-out 0.4s;
+    transition: opacity ease-in-out 0.4s;
     background-image: url('./favicon.png');
     background-size: 50px;
     background-repeat: no-repeat;
