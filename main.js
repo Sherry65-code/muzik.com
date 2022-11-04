@@ -9,12 +9,40 @@ document.getElementById('splash').style.transform = "scale(1)";
 window.addEventListener('load',()=>{
   document.getElementById('splash').style.animation = "loadstart 2s 1 ";
   document.getElementById('splash').style.transform = "scale(0)";
-})
-function updateMonitor(songnameisp){
-  document.getElementById('resumeplate').innerHTML = "Playing "+songnameisp+` <div id="playtime"></div>`;
-  document.getElementById('resumeplate').style.transform = "scale(1)";
+  if (innerWidth<600){
+    document.getElementById('player').style.left = "0";
+    document.getElementById('player').style.right = "0";
+    document.getElementById('player').style.borderRadius = "0px";
+    document.getElementById('player').style.bottom = "0px";
 
-}
+  }
+  else{
+    playersize = (innerWidth-500)/2;
+    document.getElementById('player').style.left = playersize+"px";
+    document.getElementById('player').style.right = playersize+"px";    document.getElementById('player').style.borderRadius = "0px";
+    document.getElementById('player').style.borderRadius = "18px";
+    document.getElementById('player').style.bottom = "10px";
+
+
+  }
+});
+window.addEventListener('resize',()=>{
+  if (innerWidth<600){
+    document.getElementById('player').style.left = "0";
+    document.getElementById('player').style.right = "0";
+    document.getElementById('player').style.borderRadius = "0px";
+    document.getElementById('player').style.bottom = "0px";
+
+  }
+  else{
+    playersize = (innerWidth-500)/2;
+    document.getElementById('player').style.left = playersize+"px";
+    document.getElementById('player').style.right = playersize+"px";
+    document.getElementById('player').style.borderRadius = "18px";
+    document.getElementById('player').style.bottom = "10px";
+  }
+});
+
 function setAccent(imglink){
   let myImg = new Image();
   myImg.crossOrigin = "Anonymous";
@@ -71,13 +99,9 @@ function playSong(songname, img, authorin, orignalname, index, isClickedByUser=f
     ` <span class="author">` +
     authorin +
     `</span></span>
-    <div class="timehandler" id="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span><input type="range" min="1" max="100" value="0" class="slider" id="songNow"><br><button id="play" onclick="playorpause()"></button></div>
+    <div class="timehandler" id="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span><input type="range" min="1" max="100" value="0" class="slider" id="songNow"><br></button></div><button id="play" onclick="playorpause()">
     `;
-    updateMonitor(orignalname);
     document.getElementById("songimg").src = "https://sherry65-code.github.io/muzik_img/" + img;
-    // document.getElementById("player").style.backgroundSize = "auto 70%";
-    // document.getElementById("player").style.backgroundPosition = "50% 10%";
-    // document.getElementById("player").style.backgroundRepeat = "no-repeat";
 if (isClickedByUser){
     document.getElementById("player").style.transform = "scale(1)";
 }playorpause();
@@ -91,7 +115,7 @@ function GenerateSongsInLimit(startI, endI) {
   x = startI;
   while (x < endI) {
     document.getElementById("mxa").innerHTML +=
-      `<div style="background-image: url('https://sherry65-code.github.io/muzik_img/`+songImg[x]+`')" onclick="playSong('` +
+      `<div onclick="playSong('` +
       songUrl[x] +
       `','` +
       songImg[x] +
@@ -101,7 +125,9 @@ function GenerateSongsInLimit(startI, endI) {
       songName[x] +
       `',` +
       x +
-      `,true)" class="songbutton"><span class="songname2">` +
+      `,true)" class="songbutton">
+      <img class="songminimg" src="https://sherry65-code.github.io/muzik_img/`+songImg[x]+`">
+      <span class="songname2">` +
       songName[x] +
       ` </span><br><span class="author">` +
       author[x] +
@@ -109,15 +135,15 @@ function GenerateSongsInLimit(startI, endI) {
     x += 1;
   }
   if (x>=totalLength){
-document.getElementById('hbr2').innerHTML = "";
+document.getElementById('hbr2').innerHTML = "<br><br><br><br><br><br><br>";
   } 
 
   else{
     if (totalLength-x <= 10){
-    document.getElementById('hbr2').innerHTML = "<button id ='xtra' onclick='GenerateSongsInLimit("+x+","+totalLength+")'>Show More</button>"
+    document.getElementById('hbr2').innerHTML = "<button id ='xtra' onclick='GenerateSongsInLimit("+x+","+totalLength+")'>Show More</button><br><br><br><br><br><br><br>"
     }
     else{
-      document.getElementById('hbr2').innerHTML = "<button id ='xtra' onclick='GenerateSongsInLimit("+x+","+(x+10)+")'>Show More</button>"
+      document.getElementById('hbr2').innerHTML = "<button id ='xtra' onclick='GenerateSongsInLimit("+x+","+(x+10)+")'>Show More</button><br><br><br><br><br><br><br>"
 
     }
   } 
@@ -218,52 +244,10 @@ function hidesearchpot()
   document.getElementById('searchpot').style.visibility = "hidden";
 }
 function changePlayerLook(){
-    document.getElementById('player').style = `
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    top: 0px;
-    left: 0px;
-    height: auto;
-    width: auto;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-weight: 600;
-    color: aliceblue;
-    transition: all ease-in-out 0.4s;
-    overflow: hidden;
-    transform: scale(1);
-    background-size: auto 70%;
-    background-position: 50% 10%;
-    background-repeat: no-repeat;
-  
-    z-index:2000;
-   ` ;
+document.getElementById('player').style.transform = "scale(1)";
   }
   function changePlayerLook2(){
-    document.getElementById('player').style = `
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    top: 0px;
-    left: 0px;
-    height: auto;
-    width: auto;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    font-weight: 600;
-    color: aliceblue;
-    transition: all ease-in-out 0.4s;
-    overflow: hidden;
-    transform: scale(0);
-    background-size: auto 70%;
-    background-position: 50% 10%;
-    background-repeat: no-repeat;
-
-    z-index:2000;
-
-    `;
+    document.getElementById('player').style.transform = "scale()";
 
   }
 
-  document.getElementById('player').addEventListener('dblclick',changePlayerLook2);
