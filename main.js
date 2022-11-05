@@ -23,6 +23,7 @@ window.addEventListener("load", () => {
     document.getElementById("player").style.borderRadius = "18px";
     document.getElementById("player").style.bottom = "10px";
   }
+  document.getElementById('splash').innerHTML = "";
 });
 window.addEventListener("resize", () => {
   if (innerWidth < 600) {
@@ -234,12 +235,6 @@ function SongHandler() {
       
   document.getElementById("songNow").value =
     (song_cur.currentTime / song_cur.duration) * 100;
-
-
-
-
-    
-
 }
 
 setInterval(SongHandler, 1000);

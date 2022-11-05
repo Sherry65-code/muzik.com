@@ -43,7 +43,7 @@ body{
     bottom: 18px;
     width: 20%;
     border: 2px solid rgba(0, 0, 0, 0);
-    border-radius: 28px;
+    border-radius: 13px;
     color: white;
     font-variant: normal;
     padding-inline-start:30px;
@@ -56,6 +56,7 @@ body{
     font-family: 'hecker';
 }
 #searchbar:hover{
+    background-color: black;
     width: 25%;
 }
 #searchbar::selection{
@@ -316,7 +317,7 @@ background-color: rgba(240, 248, 255, 0);
     right: 0;
     top: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: 1000;
     transition: opacity ease-in-out 0.4s;
     background-image: url('./favicon.png');
     background-size: 50px;
@@ -382,4 +383,36 @@ background-color: rgba(240, 248, 255, 0);
     position: absolute;
     left: 0;
     bottom: 0;
+}
+#loadan{
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    height: 5px;
+    background-color: rgb(165, 165, 165);
+    bottom: 30%;
+    border-radius: 8px;
+    background: linear-gradient(to right,  rgb(93, 255, 247), rgb(70, 116, 216));
+    background-attachment: fixed;
+    animation: load22 infinite 2s;
+    animation-timing-function: cubic-bezier(0.7,1,0.7,1);
+}
+@keyframes load22 {
+    0%{
+        left: 25%;
+        right: 25%;
+    }
+    25%{
+        left: 25%;
+        right: 70%;
+    }
+    50%{
+        left: 25%;
+        right: 25%;
+    }
+    75%{
+        left: 70%;
+        right: 25%;
+    }
+
 }
