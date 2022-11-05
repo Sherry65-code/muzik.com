@@ -66,7 +66,7 @@ function playorpause() {
     document.getElementById("play").style = ` 
         border: none;
         background-color: rgba(240, 248, 255, 0);
-        background-image: url('pause.png');
+        background-image: url('images/pause.png');
         background-size: contain;
         transition: all ease-in-out 0.4s;`;
   } else if (isSongPlaying == true) {
@@ -75,7 +75,7 @@ function playorpause() {
     document.getElementById("play").style = ` 
         border: none;
         background-color: rgba(240, 248, 255, 0);
-        background-image: url('play.png');
+        background-image: url('images/play.png');
         background-size: contain;
         transition: all ease-in-out 0.4s;`;
   }
@@ -110,7 +110,7 @@ function playSong(songname, img, authorin, orignalname, index) {
   document.getElementById("play").style = ` 
       border: none;
       background-color: rgba(240, 248, 255, 0);
-      background-image: url('pause.png');
+      background-image: url('images/pause.png');
       background-size: contain;
       transition: all ease-in-out 0.4s;`;
   document.getElementById("titleforweb").innerHTML =
@@ -174,7 +174,7 @@ function SongHandler() {
     document.getElementById("play").style = `    
 
     background-color: rgba(240, 248, 255, 0);
-    background-image: url('play.png');
+    background-image: url('images/play.png');
     background-size: contain;
     transition: all ease-in-out 0.4s;`;
   } else if (
@@ -186,7 +186,7 @@ function SongHandler() {
     document.getElementById("play").style = `
 
     background-color: rgba(240, 248, 255, 0);
-    background-image: url('pause.png');
+    background-image: url('images/pause.png');
     background-size: contain;
     transition: all ease-in-out 0.4s;`;
   }

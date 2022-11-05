@@ -211,7 +211,7 @@ body{
     border: none;
     padding: 10px ;
     background-color: rgba(240, 248, 255, 0);
-    background-image: url('play.png');
+    background-image: url('images/play.png');
     background-size: contain;
     background-position: center;
     transition: all ease-in-out 0.4s;
@@ -362,7 +362,7 @@ background-color: rgba(240, 248, 255, 0);
     border-radius: 18px;
     aspect-ratio: 1/1;
     position: absolute;
-    left: 20px;
+    left: 12px;
     top: 10px;
     bottom: 10px;
     height: 80px;    
