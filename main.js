@@ -82,9 +82,14 @@ function playorpause() {
 }
 function playSong(songname, img, authorin, orignalname, index) {
   indexout = index;
-  if (times != 0) {
-    playorpause();
-  }
+  isSongPlaying = false;
+  song_cur.pause();
+  document.getElementById("play").style = ` 
+      border: none;
+      background-color: rgba(240, 248, 255, 0);
+      background-image: url('images/play.png');
+      background-size: contain;
+      transition: all ease-in-out 0.4s;`;
   document.body.style.backgroundAttachment = "fixed";
   times += 1;
   song_cur = "";
