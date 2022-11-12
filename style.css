@@ -204,7 +204,7 @@ height: 55%;
 }
 #play{
     border: none;
-    padding: 16px ;
+    padding: 0px ;
     background-color: rgba(159, 191, 219, 0);
     background-image: url('images/play.png');
     background-size: auto 35px;
@@ -332,7 +332,7 @@ height: 55%;
 #songimg{
     border-radius: 18px;
     aspect-ratio: 1/1;
-    width: 150px;
+    width: 180px;
 }
 #cen{
     position: absolute;
