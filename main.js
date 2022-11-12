@@ -6,39 +6,50 @@ var isFullScreen = false;
 var backimglink = "";
 var song_cur = new Audio();
 document.getElementById("splash").style.transform = "scale(1)";
+
+function isLocalStorageAvailable(){
+  if (localStorage.getItem('name') == null || localStorage.getItem('name') == "null"){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+
+
 window.addEventListener("load", () => {
+
+  if (!isLocalStorageAvailable())
+  {
+    var tmpname = prompt("Enter your name");
+    localStorage.setItem('name', tmpname);
+  }
+  else {
+  }
+  var usrname = localStorage.getItem('name');
+  var userwel = document.getElementById('userwelcome');
+
+  var time = new Date();
+  if (time.getHours() > 0 && time.getHours() < 12){
+    userwel.innerHTML = "Good Morning "+usrname;
+  }
+  else if (time.getHours() >= 12 && time.getHours()<16){
+    userwel.innerHTML = "Good Afternoon "+usrname;
+  }
+  else if (time.getHours() >= 16 && time.getHours()<=23)
+  {
+    userwel.innerHTML = "Good Evening "+usrname;
+  }
+
   GenerateSongsInLimit(0, 10);
   document.getElementById("splash").style.animation = "loadstart 2s 1 ";
   document.getElementById("splash").style.transform = "scale(0)";
-  if (innerWidth < 600) {
-    document.getElementById("player").style.left = "0";
-    document.getElementById("player").style.right = "0";
-    document.getElementById("player").style.borderRadius = "0px";
-    document.getElementById("player").style.bottom = "0px";
-  } else {
-    playersize = (innerWidth - 500) / 2;
-    document.getElementById("player").style.left = playersize + "px";
-    document.getElementById("player").style.right = playersize + "px";
-    document.getElementById("player").style.borderRadius = "0px";
-    document.getElementById("player").style.borderRadius = "18px";
-    document.getElementById("player").style.bottom = "10px";
-  }
+
   document.getElementById('splash').innerHTML = "";
 });
-window.addEventListener("resize", () => {
-  if (innerWidth < 600) {
-    document.getElementById("player").style.left = "0";
-    document.getElementById("player").style.right = "0";
-    document.getElementById("player").style.borderRadius = "0px";
-    document.getElementById("player").style.bottom = "0px";
-  } else {
-    playersize = (innerWidth - 500) / 2;
-    document.getElementById("player").style.left = playersize + "px";
-    document.getElementById("player").style.right = playersize + "px";
-    document.getElementById("player").style.borderRadius = "18px";
-    document.getElementById("player").style.bottom = "10px";
-  }
-});
+// window.addEventListener("resize", () => {
+
+// });
 
 function setAccent(imglink) {
   let myImg = new Image();
@@ -47,14 +58,29 @@ function setAccent(imglink) {
     let context = document.createElement("canvas").getContext("2d");
     context.drawImage(myImg, 0, 0);
     let { data } = context.getImageData(10, 10, 1, 1);
+    if (data[0] > 220){
+      data[0] = parseInt(data[0]/2);
+    }
+    if (data[1] > 220){
+      data[1] = parseInt(data[2]/2);
+    }
+    if (data[2] > 220){
+      data[2] = parseInt(data[2]/2);
+    }
     document.body.style.background =
-      "linear-gradient(rgb(" +
+      "linear-gradient(135deg, rgb(" +
       data[0] +
       "," +
       data[1] +
       "," +
       data[2] +
-      "), #1c1b29)";
+      "),rgba(" +
+      (data[0]) +
+      "," +
+      data[1] +
+      "," +
+      data[2] +
+      ", 0.3)     )";
     document.body.style.backgroundAttachment = "fixed";
   };
   myImg.src = imglink;
@@ -100,13 +126,11 @@ function playSong(songname, img, authorin, orignalname, index) {
     "https://sherry65-code.github.io/muzik_img/" + img;
   document.getElementById("player").innerHTML =
     `      
-    <div id="cen"><img src="" id="songimg"></div>
-    <span class="songname" id="sn">` +
-    orignalname +
-    ` <span class="author">` +
-    authorin +
-    `</span></span>
-    <div class="timehandler" id="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span><input type="range" min="1" max="100" value="0" class="slider" id="songNow"><br></button></div><button id="play" onclick="playorpause()">
+    <img src="https://sherry65-code.github.io/muzik_img/`+img+`" alt="" id="songimg"><br>
+    <span class="songname"> `+orignalname+`</span> <br><span class="author">`+authorin+`</span>
+    <div class="timehandler" id="timehandler"><br><span id="lefttime"></span><button id="sp"><input type="range" min="1" max="100" value="0" class="slider" id="songNow"></button><span id="righttime"></span>    
+         <br></button><button id="play" onclick="playorpause()"></button>
+    
     `;
   document.getElementById("songimg").src =
     "https://sherry65-code.github.io/muzik_img/" + img;
@@ -124,6 +148,7 @@ function playSong(songname, img, authorin, orignalname, index) {
   backimglink = "https://sherry65-code.github.io/muzik_img/" + img;
   setAccent(backimglink);
 }
+
 function GenerateSongsInLimit(startI, endI) {
   x = startI;
   while (x < endI) {
@@ -220,6 +245,7 @@ function SongHandler() {
       );
     }
   }
+  if (!song_cur.paused()){
     document.getElementById("lefttime").innerHTML =
       parseInt(song_cur.currentTime / 60) +
       ":" +
@@ -237,7 +263,7 @@ function SongHandler() {
           (parseInt(document.getElementById("songNow").value) / 100) *
           parseInt(song_cur.duration);
       });
-      
+  }   
   document.getElementById("songNow").value =
     (song_cur.currentTime / song_cur.duration) * 100;
 }
@@ -281,4 +307,14 @@ function changePlayerLook() {
 }
 function changePlayerLook2() {
   document.getElementById("player").style.transform = "scale()";
+}
+
+function goHome(){
+
+}
+function goSearch(){
+
+}
+function goFav(){
+  
 }

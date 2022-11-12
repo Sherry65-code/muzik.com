@@ -11,10 +11,24 @@
 <body scroll="no">
     <div id="splash"><div id="loadan"></div></div>
     <div class="header" id="header">
-       <img src="./favicon.png" alt="" class="logo"><span class="grd"> Muzik </span><input type="text" id="searchbar" placeholder="Search here" spellcheck="false">
+        <img src="./faviconwithname.png" alt="" class="logo">
+
+<br><br>
+        <button class="hbut" id="b1"> Home</button>
+        <button class="hbut" id="b2"> Search</button>
+        <button class="hbut" id="b3"> Liked Songs</button><br>
+        <div id="player">
+            <img src="https://sherry65-code.github.io/muzik_img/master of puppets.jpg" alt="" id="songimg"><br>
+           <span class="songname"> Master of Puppets</span> <br><span class="author">Metallica</span>
+           <div class="timehandler" id="timehandler"><br><span id="lefttime"></span><button id="sp"><input type="range" min="1" max="100" value="0" class="slider" id="songNow"></button><span id="righttime"></span>    
+                </button><button id="play" onclick="playorpause()"></button>
+           </div>
+        </div>
     </div>
     <div id="main">
-        <br><br><br><br><br id="hdr">
+        <br>
+        <span id="userwelcome"></span><br>
+        <br id="hdr"><br>
         <snap id="h">Songs To Listen</snap>
         <br><br><br>
 <div id="mxa"></div>        <div id="hbr2">
@@ -22,13 +36,7 @@
         <button id='xtra'>Load More</button>
 </div>
     </div>
-    <div id="player">
-        <img src="https://sherry65-code.github.io/muzik_img/master of puppets.jpg" alt="" id="songimg">
-       <span class="songname"> Master of Puppets</span> <br><span class="author">Metallica</span>
-       <div class="timehandler" id="timehandler"><span id="lefttime"></span><button id="slider"></button><span id="righttime"></span>    
-            <br></button><button id="play" onclick="playorpause()"></button>
-       </div>
-    </div>
+
     <div id="searchpot" onclick="hidesearchpot()">
         <div id="results"></div>
     </div>
