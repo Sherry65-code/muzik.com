@@ -18,7 +18,7 @@ body{
 }
 *{
     outline: none;
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }#hbr2{
     text-align: center;
 }
@@ -52,7 +52,7 @@ body{
     background-size: auto 70%;
     background-repeat: no-repeat;
     background-position: 5px 50%;
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 #searchbar:hover{
     background-color: black;
@@ -64,10 +64,10 @@ body{
     user-select: text;
 }
 #searchbar::-webkit-input-placeholder{
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 #searchbar::placeholder{
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #songNow{
