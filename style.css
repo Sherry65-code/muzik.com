@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'hecker';
-    src: url('/Ubuntu-Regular.ttf');
-}
+
 #h{
     text-shadow: 2px 2px 2px black;
 }
@@ -19,7 +16,7 @@ body{
 }
 *{
     outline: none;
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }#hbr2{
     text-align: center;
 }
@@ -53,7 +50,7 @@ body{
     background-size: auto 70%;
     background-repeat: no-repeat;
     background-position: 5px 50%;
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 #searchbar:hover{
     background-color: black;
@@ -65,10 +62,10 @@ body{
     user-select: text;
 }
 #searchbar::-webkit-input-placeholder{
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 #searchbar::placeholder{
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 
@@ -348,7 +345,7 @@ background-color: rgba(240, 248, 255, 0);
     border-radius: 12px;
     backdrop-filter: blur(3px);
     -webkit-backdrop-filter: blur(3px);
-    font-family: 'hecker';
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 600;
     color: white;
     z-index: 5;
