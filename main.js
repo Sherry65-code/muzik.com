@@ -112,23 +112,7 @@ function playSong(songname, img, authorin, orignalname, index) {
     "https://sherry65-code.github.io/muzik_img/" + img;
   document.getElementById("player").style.transform = "scale(1)";
   song_cur.play();
-  navigator.mediaSession.metadata = new MediaMetadata({
-    title: orignalame,
-    artist: artist ,
-    album: 'unknown'
-    artwork: [
-      { src: "https://sherry65-code.github.io/muzik_img/" + img,   sizes: '256x256',   type: 'image/jpeg' },
-    ]
-  });
-
-  navigator.mediaSession.setActionHandler('play', playorpause() {});
-  navigator.mediaSession.setActionHandler('pause', playorpause() {});
-  navigator.mediaSession.setActionHandler('seekbackward', playorpause() {});
-  navigator.mediaSession.setActionHandler('seekforward', playorpause() {});
-  navigator.mediaSession.setActionHandler('previoustrack', playorpause() {});
-  navigator.mediaSession.setActionHandler('nexttrack', playorpause() {});
-
-
+  
   document.getElementById("play").style = ` 
       border: none;
       background-color: rgba(240, 248, 255, 0);
