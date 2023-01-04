@@ -112,22 +112,7 @@ function playSong(songname, img, authorin, orignalname, index) {
     "https://sherry65-code.github.io/muzik_img/" + img;
   document.getElementById("player").style.transform = "scale(1)";
   song_cur.play();
-  document.getElementById("play").style = ` 
-      border: none;
-      background-color: rgba(240, 248, 255, 0);
-      background-image: url('images/pause.png');
-      background-size: contain;
-      transition: all ease-in-out 0.4s;`;
-  document.getElementById("titleforweb").innerHTML =
-    orignalname + " - " + authorin;
-  document.getElementById("titleforweb").innerHTML = orignalname;
-  backimglink = "https://sherry65-code.github.io/muzik_img/" + img;
-  setAccent(backimglink);
-  
-
-
-
-
+  .then(_ => {
 if ('mediaSession' in navigator) {
 
   navigator.mediaSession.metadata = new MediaMetadata({
@@ -146,12 +131,30 @@ if ('mediaSession' in navigator) {
 
   navigator.mediaSession.setActionHandler('play', playorpause() {});
   navigator.mediaSession.setActionHandler('pause', playorpause() {});
-  navigator.mediaSession.setActionHandler('seekbackward', function() {});
-  navigator.mediaSession.setActionHandler('seekforward', function() {});
-  navigator.mediaSession.setActionHandler('previoustrack', function() {});
-  navigator.mediaSession.setActionHandler('nexttrack', function() {});
+  navigator.mediaSession.setActionHandler('seekbackward', playorpause() {});
+  navigator.mediaSession.setActionHandler('seekforward', playorpause() {});
+  navigator.mediaSession.setActionHandler('previoustrack', playorpause() {});
+  navigator.mediaSession.setActionHandler('nexttrack', playorpause() {});
 
 }
+
+})
+  document.getElementById("play").style = ` 
+      border: none;
+      background-color: rgba(240, 248, 255, 0);
+      background-image: url('images/pause.png');
+      background-size: contain;
+      transition: all ease-in-out 0.4s;`;
+  document.getElementById("titleforweb").innerHTML =
+    orignalname + " - " + authorin;
+  document.getElementById("titleforweb").innerHTML = orignalname;
+  backimglink = "https://sherry65-code.github.io/muzik_img/" + img;
+  setAccent(backimglink);
+  
+
+
+
+
 
 
 
