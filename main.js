@@ -112,9 +112,6 @@ function playSong(songname, img, authorin, orignalname, index) {
     "https://sherry65-code.github.io/muzik_img/" + img;
   document.getElementById("player").style.transform = "scale(1)";
   song_cur.play();
-  .then(_ => {
-if ('mediaSession' in navigator) {
-
   navigator.mediaSession.metadata = new MediaMetadata({
     title: orignalame,
     artist: artist ,
@@ -131,9 +128,7 @@ if ('mediaSession' in navigator) {
   navigator.mediaSession.setActionHandler('previoustrack', playorpause() {});
   navigator.mediaSession.setActionHandler('nexttrack', playorpause() {});
 
-}
 
-})
   document.getElementById("play").style = ` 
       border: none;
       background-color: rgba(240, 248, 255, 0);
