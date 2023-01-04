@@ -120,12 +120,7 @@ if ('mediaSession' in navigator) {
     artist: artist ,
     album: 'unknown'
     artwork: [
-      { src: "https://sherry65-code.github.io/muzik_img/" + img+"/96x96",   sizes: '96x96',   type: 'image/jpeg' },
-      { src: "https://sherry65-code.github.io/muzik_img/" + img+'/128x128', sizes: "128x128", type: 'image/jpeg' },
-      { src: "https://sherry65-code.github.io/muzik_img/" + img+ '/192x192', sizes: "192x192", type: 'image/jpeg' },
-      { src: "https://sherry65-code.github.io/muzik_img/" + img+ '/256x256', sizes: "256x256", type: 'image/jpeg' },
-      { src: "https://sherry65-code.github.io/muzik_img/" + img+ '/384x384', sizes: "384x384", type: 'image/jpeg' },
-      { src: "https://sherry65-code.github.io/muzik_img/" + img+ '/512x512', sizes: "512x512", type: 'image/jpeg' },
+      { src: "https://sherry65-code.github.io/muzik_img/" + img,   sizes: '256x256',   type: 'image/jpeg' },
     ]
   });
 
