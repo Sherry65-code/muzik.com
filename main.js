@@ -252,6 +252,12 @@ function SongHandler() {
       
   document.getElementById("songNow").value =
     (song_cur.currentTime / song_cur.duration) * 100;
+    zxy = 0;
+    while (zxy < 100)
+{
+rotate();
+zxy+=1;
+}
 }
 
 setInterval(SongHandler, 1000);
@@ -282,8 +288,13 @@ document.getElementById("searchbar").addEventListener("keyup", () => {
         `</button><br>`;
     }
     sc += 1;
-  }
-});
+}}
+);
+
+function rotate(){
+  document.getElementById("songimg").style.transform = "rotateZ("+ eventData.rotationRate.gamma+")";
+}
+
 function hidesearchpot() {
   document.getElementById("main").style.overflowY = "scroll";
   document.getElementById("searchpot").style.visibility = "hidden";
