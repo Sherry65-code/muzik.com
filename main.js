@@ -285,7 +285,7 @@ document.getElementById("searchbar").addEventListener("keyup", () => {
     sc += 1;
 }}
 
-
+);
 function hidesearchpot() {
   document.getElementById("main").style.overflowY = "scroll";
   document.getElementById("searchpot").style.visibility = "hidden";
